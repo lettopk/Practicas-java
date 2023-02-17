@@ -1,9 +1,16 @@
 package bytebankHeredado;
 
-public class Cliente {
+public class Cliente implements Autenticable{
 	private String nombre;
 	private String documento;
 	private String Telefono;
+	
+	private AutenticacionUTil util;
+	
+	public Cliente () {
+		this.util = new AutenticacionUTil();
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -22,6 +29,18 @@ public class Cliente {
 	public void setTelefono(String telefono) {
 		Telefono = telefono;
 	}
+	
+	
+	@Override
+	public void setClave(String clave) {
+		this.setClave(clave);
+		
+	}
+	
+	@Override
+	public boolean inciarSesion(String clave) {
+		return this.util.iniciarSesion(clave)
+;	}
 	
 	
 }
